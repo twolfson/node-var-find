@@ -20,12 +20,12 @@ varFind(function abc() {
   console.log('hi');
 } + '');
 // [{
+//   "start": 78,
+//   "end": 92,
 //   "vars": [{
-//     "start": 47,
-//     "end": 56
-//   }],
-//   "start": 43,
-//   "end": 57
+//     "start": 82,
+//     "end": 91
+//   }]
 // }]
 ```
 
