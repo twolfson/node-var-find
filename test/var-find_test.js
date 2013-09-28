@@ -1,5 +1,6 @@
 // Load in dependencies and library
 var fs = require('fs'),
+    assert = require('assert'),
     varFind = require('../lib/var-find.js');
 
 // Load in test files
@@ -12,12 +13,14 @@ describe('var-find', function () {
   testFiles.forEach(function (filename) {
     before(function () {
       // Load in the file contents
+      // [{var abc;}]
       var testFile = fs.readFileSync(testDir + '/' + filename, 'utf8');
 
       // Extract the var groups
       var groupStartRegExp = /\[/g;
       while (true) {
         // Find the next match
+        // `[` + {var abc;}]
         var groupStart = groupStartRegExp.exec(testFile);
 
         // If there was no match, stop
@@ -25,11 +28,20 @@ describe('var-find', function () {
           break;
         }
 
+        // Remove the starting piece
+        // {var abc;}]
+
+        // Find the group end
+
+
+        // TODO: Assert groupEnd
+
         // Extract each var piece
         var group = [],
             varStartRegExp = /{/g;
         while (true) {
-          var
+          // var varStart = varStartRegExp.exec(
+          break;
         }
       }
     });
