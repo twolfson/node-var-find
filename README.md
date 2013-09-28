@@ -13,7 +13,8 @@ Install the module with: `npm install var-find`
 ```javascript
 var varFind = require('var-find');
 varFind(function abc() {
-  // [var {def = 123};]
+  // Group: `var def = 123;`
+  // Declaration: `def = 123;`
   var def = 123;
 
   console.log('hi');

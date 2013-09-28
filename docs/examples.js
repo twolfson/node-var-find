@@ -1,6 +1,7 @@
 var varFind = require('../lib/var-find');
 var fn = function abc() {
-  // [var {def = 123};]
+  // Group: `var def = 123;`
+  // Declaration: `def = 123;`
   var def = 123;
 
   console.log('hi');
