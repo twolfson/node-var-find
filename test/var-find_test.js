@@ -12,7 +12,7 @@ describe('var-find', function () {
   // Iterate over the test files (cases)
   testFiles.forEach(function (filename) {
     // DEV: Test only one file
-    if (filename !== 'single.js') { return; }
+    // if (filename !== 'single.js') { return; }
 
     describe('parsing ' + filename, function () {
       // Parse out content from selection in our file
@@ -87,7 +87,11 @@ describe('var-find', function () {
           }
 
           // Save the vars for later
-          groups.push(vars);
+          groups.push({
+            vars: vars,
+            start: groupStart,
+            end: groupEnd
+          });
         }
 
         // Collect chars
