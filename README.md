@@ -47,7 +47,43 @@ varFind(script);
 ```
 
 ## Examples
-_(Coming soon)_
+For visual representation, variable groups begin and end with `[` and `]`; for variable declarations, `{` and `}`.
+
+**Single definition:**
+
+```js
+[var {abc = 123};]
+
+console.log('hi');
+```
+
+**Comma-last definition:**
+
+```js
+[var {abc},
+     {def};]
+
+console.log('hi');
+```
+
+**Comma-first definition:**
+
+```js
+[var {abc}
+   , {def};]
+
+console.log('hi');
+```
+
+**Trailing whitespace (with semicolon):**
+
+> Trailing whitespace without semicolon is considered another statement and ignored.
+
+```js
+[var {abc = 123}   ;]
+
+console.log('hi');
+```
 
 ## Donating
 Support this project and [others by twolfson][gittip] via [gittip][].
