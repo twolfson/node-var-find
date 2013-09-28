@@ -12,7 +12,10 @@ describe('var-find', function () {
   // Iterate over the test files (cases)
   testFiles.forEach(function (filename) {
     describe('parsing ' + filename, function () {
+      // Parse out content from selection in our file
       before(function () {
+        // TODO: We could have done right to left finding to not deal with splice errors (e.g. >= groupEnd)
+        // TODO: I wonder how we can abstract this...
         // Load in the file contents
         // [{var abc;}]
         var testFile = fs.readFileSync(testDir + '/' + filename, 'utf8'),
@@ -81,11 +84,7 @@ describe('var-find', function () {
           }
 
           // Save the vars for later
-          groups.push({
-            vars: vars,
-            start: groupStart,
-            end: groupEnd
-          });
+          groups.push(vars);
         }
 
         // Collect chars
@@ -97,11 +96,17 @@ describe('var-find', function () {
 
         // Save content and groups for later
         this.content = content;
-        this.groups = groups;
+        this.expectedGroups = groups;
       });
 
-      it('contains expected groups of variables', function () {
+      // Run the content through varFind
+      before(function () {
+        this.actualGroups = varFind(this.content);
+      });
 
+      // Run our assertion
+      it('contains expected groups of variables', function () {
+        assert.deepEqual(this.actualGroups, this.expectedGroups);
       });
     });
   });
