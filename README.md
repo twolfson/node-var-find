@@ -2,16 +2,29 @@
 
 Find and return indexes of variable declarations.
 
+This was built to run inside of [twolfson/sublime-js-var-shortcuts][], a [Sublime Text][] plugin to make dealing with adding/removing `vars` easier.
+
+[twolfson/sublime-js-var-shortcuts]: https://github.com/twolfson/sublime-js-var-shortcuts
+[Sublime Text]: http://sublimetext.com/
+
 ## Getting Started
 Install the module with: `npm install var-find`
 
 ```javascript
-var var_find = require('var-find');
-var_find.awesome(); // "awesome"
+var varFind = require('var-find');
+varFind(function () {
+  var abc = 123;
+
+  console.log('hi');
+} + '');
 ```
 
 ## Documentation
-_(Coming soon)_
+`varFind` is a function that takes in a JS source code.
+
+```js
+varFind(script
+```
 
 ## Examples
 _(Coming soon)_
