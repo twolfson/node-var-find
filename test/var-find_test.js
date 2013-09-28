@@ -11,6 +11,9 @@ var testDir = __dirname + '/test_files',
 describe('var-find', function () {
   // Iterate over the test files (cases)
   testFiles.forEach(function (filename) {
+    // DEV: Test only one file
+    if (filename !== 'single.js') { return; }
+
     describe('parsing ' + filename, function () {
       // Parse out content from selection in our file
       before(function () {
