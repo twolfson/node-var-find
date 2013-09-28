@@ -1,4 +1,4 @@
-[{var abc;}]
+[var{ abc};]
 
 console.log('hi');
 

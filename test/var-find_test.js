@@ -109,7 +109,7 @@ describe('var-find', function () {
 
       // Run our assertion
       it('contains expected groups of variables', function () {
-        // assert.deepEqual(this.actualGroups, this.expectedGroups);
+        assert.deepEqual(this.actualGroups, this.expectedGroups);
       });
     });
   });
