@@ -32,7 +32,6 @@ describe('var-find', function () {
 
           // Remove the starting piece
           // {var abc;}]
-          console.log('a', groupStart, testChars.join(''));
           testChars.splice(groupStart, 1);
 
           // Find the group end
@@ -42,7 +41,6 @@ describe('var-find', function () {
 
           // Remove the group end
           testChars.splice(groupEnd, 1);
-          console.log('b', groupEnd);
 
           // Extract each var piece
           var vars = [];
@@ -50,7 +48,6 @@ describe('var-find', function () {
             // Find the next var start
             // `{` + var abc;}]
             var varStart = testChars.indexOf('{');
-            console.log('yyy', varStart, groupEnd);
 
             // If there was no match or we have gone beyond the group end, stop
             if (varStart === -1 || varStart >= groupEnd) {
@@ -95,10 +92,12 @@ describe('var-find', function () {
         var content = testChars.join('');
 
         // If there are any special chars remaining, complain
-        console.log('end', content);
         var specialMatch = content.match(/\[|{|}|\]/);
         assert.strictEqual(specialMatch, null);
 
+        // Save content and groups for later
+        this.content = content;
+        this.groups = groups;
       });
 
       it('contains expected groups of variables', function () {
